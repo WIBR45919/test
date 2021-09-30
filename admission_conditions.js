@@ -1,3 +1,5 @@
+//elt d'affichage dans le html
+let content = document.querySelector('#container');
 //liste des entreprises et conditions d'admissions
 
 //tableau ou liste des jobs
@@ -52,6 +54,17 @@ let Compagnies = [
             "like to learn",
             "like to innovate"
         ]
+    },
+    {
+        name:'E',
+        requirements: [
+            "don't have many experience",
+            "like to develop",
+            "like to learn",
+            "like to innovate",
+            "haven't a car",
+            '2 or 3 or 4 door car'
+        ]
     }
 ]
 
@@ -87,5 +100,25 @@ Compagnies.forEach(compagny => {
     }
     normalReq = 0;
 })
-console.log(possibleCompagny);
+// console.log(possibleCompagny);
+//ajout dans le html
+if(possibleCompagny.length > 0){
+    possibleCompagny.forEach(elt =>{
+        cont_1 = `
+        <details>
+        <summary>Compagnie ${ elt.name } <span>${ elt.cond }</span></summary>
+        <ol>`;
+
+        elt.requirements.forEach(req =>{
+            cont_1 += `
+                
+                    <li>${ req }</li>
+            `
+        })
+
+        content.innerHTML += `${ cont_1 } </ol></details>`;
+    })
+}else{
+    content.innerHTML = `<strong>Aucune compagnie trouvée</strong>`
+}
 // notitifier dans quel entreprises je peut y aller
