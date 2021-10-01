@@ -1,5 +1,6 @@
 //elt d'affichage dans le html
 let content = document.querySelector('#container');
+let title = document.querySelector('.title');
 //liste des entreprises et conditions d'admissions
 
 //tableau ou liste des jobs
@@ -102,6 +103,10 @@ Compagnies.forEach(compagny => {
 })
 // console.log(possibleCompagny);
 //ajout dans le html
+
+//-----titre
+title.innerHTML=`${possibleCompagny?.length} resutat(s) trouvé(s)`;
+
 if(possibleCompagny.length > 0){
     possibleCompagny.forEach(elt =>{
         cont_1 = `
